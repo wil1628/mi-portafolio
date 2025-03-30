@@ -1,0 +1,165 @@
+/* Variables principales */
+:root {
+    --primary-color: #4d75fa;
+    --secondary-color: #a777e3;
+    --bg-light: #ffffff;
+    --text-light: #212529;
+    --bg-dark: #212529;
+    --text-dark: #f8f9fa;
+    --navbar-bg-light: #343a40;
+    --navbar-bg-dark: #1a1d20;
+    --card-bg-light: #ffffff;
+    --card-bg-dark: #2c3034;
+    --border-radius: 10px;
+}
+
+/* Estilos generales para el body */
+body {
+    font-family: 'Poppins', Arial, sans-serif; /* Añadido fallback */
+    padding-top: 72px; /* Ajuste para navbar fijo */
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: background-color 0.5s ease, color 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background-size: 200% 200%;
+    animation: gradientBG 10s ease infinite;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Mejora de accesibilidad */
+}
+
+.hero-section img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer; /* Cursore en forma de puntero al pasar el mouse */
+    transform: scale(1); /* Inicio del tamaño de la imagen */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra de la imagen */
+}
+
+.hero-section img:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Cards de Proyectos */
+.project-card {
+    border: none;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+    height: 200px;
+    object-fit: cover;
+    alt: "Imagen de proyecto"; /* Accesibilidad */
+}
+
+/* Animación para las tarjetas */
+#featured-projects .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#featured-projects .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto íconos sociales */
+.social-links a {
+    transition: transform 0.3s, color 0.3s;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+    color: var(--primary-color) !important;
+}
+
+/* Modo Claro/Oscuro */
+[data-bs-theme="light"] {
+    --bg-color: var(--bg-light);
+    --text-color: var(--text-light);
+    --card-bg: var(--card-bg-light);
+    --navbar-bg: var(--navbar-bg-light);
+}
+
+[data-bs-theme="dark"] {
+    --bg-color: var(--bg-dark);
+    --text-color: var(--text-dark);
+    --card-bg: var(--card-bg-dark);
+    --navbar-bg: var(--navbar-bg-dark);
+
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+    }
+
+    .navbar {
+        background-color: var(--navbar-bg) !important;
+    }
+
+    .card, .bg-light {
+        background-color: var(--card-bg) !important;
+        color: var(--text-color);
+    }
+
+    .btn-outline-primary {
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+}
+
+/* Transición suave para el cambio de tema */
+body, .navbar, .card, .btn {
+    transition: background-color 0.5s ease, color 0.3s ease;
+}
+
+/* Ajustes específicos para el botón de modo oscuro */
+#darkModeToggle {
+    color: var(--secondary-color);
+    border: 1px solid var(--text-color);
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Ajustes para botones */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-light {
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+.btn-outline-light:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Enlaces */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
